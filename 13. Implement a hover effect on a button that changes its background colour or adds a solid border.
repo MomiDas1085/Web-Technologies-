@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+.button{
+
+background-color: grey;
+
+padding: 10px 20px;
+
+border: 3px solid transparent;
+
+transition: background-color border-color 0.4s ease;
+
+}
+
+.button:hover{
+
+background-color: blue;
+
+border-color: black;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Hoverable button</h2>
+
+<button class="button">Blue</button>
+
+</body>
+
+</html>
