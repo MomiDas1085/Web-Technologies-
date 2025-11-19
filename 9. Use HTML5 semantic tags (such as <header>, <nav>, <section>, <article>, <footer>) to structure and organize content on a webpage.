@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<header>
+
+<h1>Semantic Tags</h1>
+
+<p>Organizing content in a webpage<p>
+
+</header>
+
+<nav>
+
+<a href="b.html">Structure</a>
+
+<a href="c.html">Unordered List</a>
+
+<a href="d.html">Table</a>
+
+<a href="e.html">Ordered List</a>
+
+</nav>
+
+<section>
+
+<h2>Section 1</h2>
+
+<p>Paragraph</p>
+
+</section>
+
+<section>
+
+<h2>Section 2</h2>
+
+<p>Paragraph</p>
+
+</section>
+
+<article>
+
+<h2>Article 1<h2>
+
+<p>Content</p>
+
+</article>
+
+<article>
+
+<h2>Article 2<h2>
+
+<p>Content</p>
+
+</article>
+
+<footer>
+
+<p>Author:Emma<p>
+
+<p>Contact Info:1234567890<p>
+
+</footer>
+
+</body>
+
+</html>
