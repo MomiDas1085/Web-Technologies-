@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<p id="r">Click the button to see a random number!</p>
+
+<button id="g">Generate Random Number</button>
+
+
+
+<script>
+
+const r=document.getElementById('r');
+
+const g=document.getElementById('g');
+
+
+
+function display() {
+
+ const rn=Math.floor(Math.random() * 10) + 1;
+
+ r.innerText= `Your random number is: ${rn}`;
+
+}
+
+g.addEventListener('click', display);
+
+</script>
+
+</body>
+
+</html>
