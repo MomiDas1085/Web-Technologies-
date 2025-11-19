@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+li{
+
+background-color: white;
+
+transition: background-color 0.3s;
+
+}
+
+li.active{
+
+background-color: powderblue;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<ul id="i">
+
+<li>Item 1</li>
+
+<li>Item 2</li>
+
+<li>Item 3</li>
+
+<li>Item 4</li>
+
+</ul>
+
+<script>
+
+const items=document.querySelectorAll('#i li');
+
+items.forEach(item => {
+
+ item.addEventListener('click', () => {
+
+  items.forEach(i => i.classList.remove('active'));
+
+  item.classList.add('active');
+
+ });
+
+});
+
+</script>
+
+</body>
+
+</html>
