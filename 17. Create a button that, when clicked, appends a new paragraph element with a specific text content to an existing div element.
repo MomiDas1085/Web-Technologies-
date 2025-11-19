@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<div>
+
+<p>Click "Append" to create a p element and append it to the document's body:</p>
+
+<button onclick="myFunction()">Append</button>
+
+</div>
+
+<script>
+
+function myFunction() {
+
+const para=document.createElement("p");
+
+const node=document.createTextNode("This is a paragraph.");
+
+para.appendChild(node);
+
+document.body.appendChild(para);
+
+}
+
+</script>
+
+</body>
+
+</html>
