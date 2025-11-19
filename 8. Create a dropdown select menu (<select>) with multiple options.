@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<label for="food">Select a food item:<br><br></label>
+
+<select name="food" id="food" multiple>
+
+<option value="cake">Cake</option>
+
+<option value="chocolate">Chocolate</option>
+
+<option value="icecream">Icecream</option>
+
+<option value="chips">Chips</option>
+
+</select>
+
+<br><br>
+
+<p>Hold down the Ctrl (windows) button to select multiple options</p>
+
+</body>
+
+</html>
