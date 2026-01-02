@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MAX_FRAMES   20
+#define WINDOW_SIZE   4
+
+// Chance that a frame or ACK is lost (0.0 = never, 1.0 = always)
+#define LOSS_PROB     0.2   
+
+// Generate random true/false based on loss probability
+int is_lost(double p) {
+    return ((double)rand() / RAND_MAX) < p;
+}
+
+int main() {
+    int total_frames;
+    int base = 0;          // first frame in sender window
+    int next_seq = 0;      // next frame number to send
+
+    srand(time(NULL));
+
+    printf("Enter number of frames to send (max %d): ", MAX_FRAMES);
+    scanf("%d", &total_frames);
+
+
+    while (base < total_frames) {
+
+        
+// 1. Sender sends frames inside the window
+        
+        while (next_seq < base + WINDOW_SIZE && next_seq < total_frames) {
+            printf("\nSending frame %d", next_seq);
+
+            
+            next_seq++;
+        }
+        
+        if (is_lost(LOSS_PROB)) {
+            printf("\nACK for frame %d is LOST! -> TIMEOUT\n", base);
+            printf("\nResending window from frame %d\n", base);
+
+            // retransmit the whole window
+            next_seq = base;
+        } else {
+            printf("\n\nACK for frame %d received\n", base);
+            base++;  // slide sender window by 1
+        }
+    }
+
+    return 0;
+}
+
