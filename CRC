@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+
+void xorDiv(char data[], char divisor[], char rem[]) {
+    int dl = strlen(data), divl = strlen(divisor);
+    char temp[150];
+    strcpy(temp, data);
+
+    for (int i = 0; i <= dl - divl; i++) {
+        if (temp[i] == '1') {
+            for (int j = 0; j < divl; j++) {
+                temp[i + j] = (temp[i + j] == divisor[j]) ? '0' : '1';
+            }
+        }
+    }
+
+    int start = strlen(temp) - (divl - 1);  // Corrected index
+    strncpy(rem, temp + start, divl - 1);
+    rem[divl - 1] = '\0';
+}
+
+int main() {
+    char data[100], divisor[50], rem[50], code[150];
+
+    printf("Enter data bits: ");
+    scanf("%s", data);
+
+    printf("Enter divisor: ");
+    scanf("%s", divisor);
+
+    char temp[150];
+    strcpy(temp, data);
+
+    // Append (divisor length - 1) zeros to data
+    for (int i = 0; i < strlen(divisor) - 1; i++)
+        strcat(temp, "0");
+
+    xorDiv(temp, divisor, rem); // Calculate CRC
+
+    // Append remainder to original data
+    strcpy(code, data);
+    strcat(code, rem);
+
+    printf("\nCRC bits: %s", rem);
+    printf("\nCodeword: %s\n", code);
+
+    return 0;
+}
+
+
+
+Output:
+
+Enter data bits: 11010011101100
+Enter divisor: 1011
+
+CRC bits: 100
+Codeword: 11010011101100100
+
