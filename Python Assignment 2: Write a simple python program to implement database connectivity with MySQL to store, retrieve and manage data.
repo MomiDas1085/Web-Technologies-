@@ -1,0 +1,65 @@
+import mysql.connector
+
+# Establish connection
+con = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password@1234"
+)
+
+print("Connected to MySQL successfully!")
+
+# Create a cursor object
+cursor = con.cursor()
+
+# Create database
+cursor.execute("CREATE DATABASE IF NOT EXISTS studentdb")
+print("Database created successfully!")
+
+# Select the created database
+con.database = "studentdb"
+
+# ✔ Fetch all tables in this database (FIRST CHECK)
+cursor.execute("SHOW TABLES")
+print("Tables before creation:", cursor.fetchall())
+
+# Create table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS student (
+    roll INT PRIMARY KEY,
+    name VARCHAR(50),
+    marks INT
+)
+""")
+print("Table created successfully!")
+
+# ✔ Fetch all tables again (AFTER TABLE CREATION)
+cursor.execute("SHOW TABLES")
+print("Tables now:", cursor.fetchall())
+
+# Insert data
+while True:
+    roll = int(input("Enter roll number: "))
+    name = input("Enter name: ")
+    marks = int(input("Enter marks: "))
+
+    query = "INSERT INTO student (roll, name, marks) VALUES (%s, %s, %s)"
+    values = (roll, name, marks)
+    cursor.execute(query, values)
+    con.commit()
+
+    print("Record inserted successfully!")
+
+    choice = input("Do you want to add another record? (yes/no): ")
+    if choice.lower() != "yes":
+        break
+
+# Fetch and display data
+cursor.execute("SELECT * FROM student")
+result = cursor.fetchall()
+for row in result:
+    print(row)
+
+# Close connection
+con.close()
+print("Connection closed.")
