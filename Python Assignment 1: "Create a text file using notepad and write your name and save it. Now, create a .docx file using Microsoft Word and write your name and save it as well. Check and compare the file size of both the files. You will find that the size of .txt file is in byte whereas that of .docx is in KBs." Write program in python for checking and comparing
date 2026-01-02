@@ -1,0 +1,39 @@
+import os
+
+txt_file = "/Users/MomiDas /Desktop/assignment/myname.txt"
+docx_file = "/Users/MomiDas/Desktop/assignment/myname.docx"
+
+print("Checking these files:")
+print(txt_file)
+print(docx_file)
+
+
+txt_size = os.path.getsize(txt_file)
+docx_size = os.path.getsize(docx_file)
+
+print(f"\nSize of text file: {txt_size} bytes")
+print(f"Size of Word file: {docx_size} bytes")
+
+
+if txt_size < docx_size:
+    print("\nThe .txt file is smaller than the .docx file.")
+elif txt_size > docx_size:
+    print("\nThe .docx file is smaller than the .txt file (rare case).")
+else:
+    print("\nBoth files are of the same size.")
+
+
+___________________________________________
+
+Output:
+
+Checking these files:
+/Users/MomiDas/Desktop/assignment/myname.txt
+/Users/MomiDas/Desktop/assignment/myname.docx
+
+Size of text file: 9 bytes
+Size of Word file: 12257 bytes
+
+The .txt file is smaller than the .docx file.
+
+
